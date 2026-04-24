@@ -50,8 +50,7 @@ export default function UserManager({ password }: Props) {
   }
 
   return (
-    <div className="card user-manager">
-      <h2>users</h2>
+    <div className="user-manager">
       <div className="subtitle">only these usernames can submit entries from the public page</div>
       {loading && <div className="muted">loading...</div>}
       {!loading && users.length === 0 && (

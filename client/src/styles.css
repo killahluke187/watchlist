@@ -435,6 +435,12 @@ button.danger:hover:not(:disabled) {
   padding-top: 4px;
 }
 
+.user-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .user-manager .user-list {
   list-style: none;
   margin: 0;

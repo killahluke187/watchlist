@@ -26,6 +26,7 @@ export default function Admin() {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [addOpen, setAddOpen] = useState(false);
+  const [usersOpen, setUsersOpen] = useState(false);
   const [editingEntry, setEditingEntry] = useState<Entry | null>(null);
   const [nameQuery, setNameQuery] = useState("");
   const [usernameQuery, setUsernameQuery] = useState("");
@@ -165,11 +166,10 @@ export default function Admin() {
             onSortOrderChange={setSortOrder}
           />
           <button onClick={() => setAddOpen(true)}>+ new entry</button>
+          <button className="ghost" onClick={() => setUsersOpen(true)}>users</button>
           <button className="ghost" onClick={logout}>logout</button>
         </div>
       </header>
-
-      <UserManager password={password} />
 
       <SearchBar
         nameQuery={nameQuery}
@@ -201,6 +201,10 @@ export default function Admin() {
 
       <Modal open={addOpen} onClose={() => setAddOpen(false)} title="new entry">
         <AddEntryForm onAdded={onAdded} submittedBy="admin" adminPassword={password} />
+      </Modal>
+
+      <Modal open={usersOpen} onClose={() => setUsersOpen(false)} title="users">
+        <UserManager password={password} />
       </Modal>
 
       <Modal
