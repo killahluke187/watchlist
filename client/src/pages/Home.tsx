@@ -4,12 +4,18 @@ import EntryCard from "../components/EntryCard";
 import Modal from "../components/Modal";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
+import UserGate from "../components/UserGate";
 import ViewControls from "../components/ViewControls";
 import { useViewPrefs } from "../hooks/useViewPrefs";
-import { fetchEntries } from "../api";
+import { checkUser, fetchEntries } from "../api";
 import type { Entry } from "../types";
 
+const USER_KEY = "watchlist-user";
+
 export default function Home() {
+  const [authedUser, setAuthedUser] = useState<string | null>(null);
+  const [authChecked, setAuthChecked] = useState(false);
+
   const [entries, setEntries] = useState<Entry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,11 +26,32 @@ export default function Home() {
   const { pageSize, setPageSize, columns, setColumns, sortOrder, setSortOrder } = useViewPrefs();
 
   useEffect(() => {
+    const cached = localStorage.getItem(USER_KEY);
+    if (!cached) {
+      setAuthChecked(true);
+      return;
+    }
+    checkUser(cached)
+      .then((ok) => {
+        if (ok) setAuthedUser(cached);
+        else localStorage.removeItem(USER_KEY);
+      })
+      .catch(() => {})
+      .finally(() => setAuthChecked(true));
+  }, []);
+
+  useEffect(() => {
+    if (!authedUser) return;
     fetchEntries()
       .then(setEntries)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [authedUser]);
+
+  function onAuthed(username: string) {
+    localStorage.setItem(USER_KEY, username);
+    setAuthedUser(username);
+  }
 
   function onAdded(entry: Entry) {
     setEntries((prev) => [entry, ...prev]);
@@ -65,12 +92,15 @@ export default function Home() {
     setPage(1);
   }, [nameQuery, usernameQuery, pageSize]);
 
+  if (!authChecked) return null;
+  if (!authedUser) return <UserGate onAuthed={onAuthed} />;
+
   return (
     <div className={`page${columns === 3 ? " page--wide" : ""}`}>
       <header className="page-header card">
         <div>
           <h1>watchlist</h1>
-          <div className="subtitle">anyone with the link can add an entry</div>
+          <div className="subtitle">signed in as {authedUser}</div>
         </div>
         <div className="header-actions">
           <ViewControls
@@ -110,7 +140,7 @@ export default function Home() {
       <Pagination page={page} pageCount={pageCount} onChange={setPage} />
 
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="new entry">
-        <AddEntryForm onAdded={onAdded} />
+        <AddEntryForm onAdded={onAdded} submittedBy={authedUser} />
       </Modal>
     </div>
   );

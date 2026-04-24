@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
 const DATA_FILE = path.join(DATA_DIR, "entries.json");
+const USERS_FILE = path.join(DATA_DIR, "users.json");
 const UPLOAD_DIR = path.join(ROOT, "uploads");
 const CLIENT_DIST = path.resolve(ROOT, "..", "client", "dist");
 
@@ -22,6 +23,7 @@ for (const dir of [DATA_DIR, UPLOAD_DIR]) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 if (!fs.existsSync(DATA_FILE)) fs.writeFileSync(DATA_FILE, "[]");
+if (!fs.existsSync(USERS_FILE)) fs.writeFileSync(USERS_FILE, "[]");
 
 type Entry = {
   id: string;
@@ -31,19 +33,56 @@ type Entry = {
   imageFile: string | null;
   youtubeId: string | null;
   medalEmbedUrl: string | null;
+  submittedBy: string | null;
   submitterIp: string | null;
   createdAt: number;
 };
 
-type PublicEntry = Omit<Entry, "submitterIp">;
+type PublicEntry = Omit<Entry, "submitterIp" | "submittedBy">;
+type AdminEntry = Omit<Entry, "submitterIp">;
 
 function publicView(e: Entry): PublicEntry {
+  const { submitterIp: _ip, submittedBy: _by, ...rest } = e;
+  return rest;
+}
+
+function adminEntryView(e: Entry): AdminEntry {
   const { submitterIp: _ip, ...rest } = e;
   return rest;
 }
 
 function getClientIp(req: Request): string | null {
   return req.ip || null;
+}
+
+function readUsers(): string[] {
+  try {
+    const raw = fs.readFileSync(USERS_FILE, "utf8");
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((u): u is string => typeof u === "string" && u.length > 0);
+  } catch {
+    return [];
+  }
+}
+
+function writeUsers(users: string[]) {
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+}
+
+function normalizeUsername(name: string): string {
+  return name.trim();
+}
+
+function isValidUser(name: string | null | undefined): boolean {
+  if (typeof name !== "string") return false;
+  const n = name.trim().toLowerCase();
+  if (!n) return false;
+  return readUsers().some(u => u.toLowerCase() === n);
+}
+
+function isAdminAuth(req: Request): boolean {
+  return req.header("x-admin-password") === ADMIN_PASSWORD;
 }
 
 function readEntries(): Entry[] {
@@ -59,6 +98,7 @@ function readEntries(): Entry[] {
       imageFile: e.imageFile ?? null,
       youtubeId: e.youtubeId ?? null,
       medalEmbedUrl: e.medalEmbedUrl ?? null,
+      submittedBy: e.submittedBy ?? null,
       submitterIp: e.submitterIp ?? null,
       createdAt: e.createdAt!,
     }));
@@ -151,13 +191,54 @@ app.post("/api/admin/login", (req, res) => {
   return res.status(401).json({ ok: false });
 });
 
-app.get("/api/entries", (_req, res) => {
+app.post("/api/auth/check", (req, res) => {
+  const { username } = req.body ?? {};
+  if (!isValidUser(username)) return res.status(401).json({ ok: false });
+  return res.json({ ok: true });
+});
+
+app.get("/api/admin/users", requireAdmin, (_req, res) => {
+  res.json(readUsers());
+});
+
+app.post("/api/admin/users", requireAdmin, (req, res) => {
+  const { username } = req.body ?? {};
+  if (typeof username !== "string") {
+    return res.status(400).json({ error: "username required" });
+  }
+  const normalized = normalizeUsername(username);
+  if (!normalized) return res.status(400).json({ error: "username required" });
+  if (normalized.length > 40) return res.status(400).json({ error: "username too long" });
+  if (!/^[a-zA-Z0-9_.\-]+$/.test(normalized)) {
+    return res.status(400).json({ error: "letters, digits, dot, dash, underscore only" });
+  }
+  const users = readUsers();
+  const lower = normalized.toLowerCase();
+  if (users.some(u => u.toLowerCase() === lower)) {
+    return res.status(409).json({ error: "user already exists" });
+  }
+  users.push(normalized);
+  writeUsers(users);
+  res.status(201).json(users);
+});
+
+app.delete("/api/admin/users/:username", requireAdmin, (req, res) => {
+  const target = req.params.username.toLowerCase();
+  const users = readUsers();
+  const next = users.filter(u => u.toLowerCase() !== target);
+  if (next.length === users.length) return res.status(404).json({ error: "not found" });
+  writeUsers(next);
+  res.json(next);
+});
+
+app.get("/api/entries", (req, res) => {
   const entries = readEntries().sort((a, b) => b.createdAt - a.createdAt);
-  res.json(entries.map(publicView));
+  const view = isAdminAuth(req) ? adminEntryView : publicView;
+  res.json(entries.map(view));
 });
 
 app.post("/api/entries", async (req, res) => {
-  const { username, name, reason, imageDataUrl, youtubeUrl, medalUrl } = req.body ?? {};
+  const { username, name, reason, imageDataUrl, youtubeUrl, medalUrl, submittedBy } = req.body ?? {};
   if (typeof username !== "string" || !username.trim()) {
     return res.status(400).json({ error: "username required" });
   }
@@ -166,6 +247,19 @@ app.post("/api/entries", async (req, res) => {
   }
   if (typeof reason !== "string" || !reason.trim()) {
     return res.status(400).json({ error: "reason required" });
+  }
+  let resolvedSubmittedBy: string | null = null;
+  if (isAdminAuth(req)) {
+    resolvedSubmittedBy = typeof submittedBy === "string" && submittedBy.trim()
+      ? submittedBy.trim().slice(0, 40)
+      : "admin";
+  } else {
+    if (typeof submittedBy !== "string" || !isValidUser(submittedBy)) {
+      return res.status(403).json({ error: "user not authorized" });
+    }
+    const lower = submittedBy.trim().toLowerCase();
+    const canonical = readUsers().find(u => u.toLowerCase() === lower);
+    resolvedSubmittedBy = canonical ?? submittedBy.trim();
   }
   let imageFile: string | null = null;
   let youtubeId: string | null = null;
@@ -188,13 +282,15 @@ app.post("/api/entries", async (req, res) => {
     imageFile,
     youtubeId,
     medalEmbedUrl,
+    submittedBy: resolvedSubmittedBy,
     submitterIp: getClientIp(req),
     createdAt: Date.now(),
   };
   const entries = readEntries();
   entries.push(entry);
   writeEntries(entries);
-  res.status(201).json(publicView(entry));
+  const view = isAdminAuth(req) ? adminEntryView : publicView;
+  res.status(201).json(view(entry));
 });
 
 app.put("/api/entries/:id", requireAdmin, async (req, res) => {
@@ -238,7 +334,7 @@ app.put("/api/entries/:id", requireAdmin, async (req, res) => {
   }
   entries[idx] = next;
   writeEntries(entries);
-  res.json(publicView(next));
+  res.json(adminEntryView(next));
 });
 
 app.delete("/api/entries/:id", requireAdmin, (req, res) => {

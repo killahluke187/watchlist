@@ -435,6 +435,39 @@ button.danger:hover:not(:disabled) {
   padding-top: 4px;
 }
 
+.user-manager .user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-manager .user-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.user-manager .user-list-name {
+  font-family: var(--font-body);
+}
+
+.entry-meta--admin {
+  color: var(--accent);
+}
+
+.user-gate {
+  background: rgba(0, 0, 0, 0.92);
+}
+
 .header-actions {
   display: flex;
   flex-direction: row;

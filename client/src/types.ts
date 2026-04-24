@@ -6,6 +6,7 @@ export type Entry = {
   imageFile: string | null;
   youtubeId: string | null;
   medalEmbedUrl: string | null;
+  submittedBy?: string | null;
   createdAt: number;
 };
 

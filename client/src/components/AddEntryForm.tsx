@@ -5,9 +5,11 @@ import type { Entry, MediaInput } from "../types";
 
 type Props = {
   onAdded: (entry: Entry) => void;
+  submittedBy: string;
+  adminPassword?: string;
 };
 
-export default function AddEntryForm({ onAdded }: Props) {
+export default function AddEntryForm({ onAdded, submittedBy, adminPassword }: Props) {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [reason, setReason] = useState("");
@@ -28,10 +30,11 @@ export default function AddEntryForm({ onAdded }: Props) {
         username: username.trim(),
         name: name.trim(),
         reason: reason.trim(),
+        submittedBy,
         imageDataUrl: media?.kind === "image" ? media.dataUrl : null,
         youtubeUrl: media?.kind === "youtube" ? media.url : null,
         medalUrl: media?.kind === "medal" ? media.url : null,
-      });
+      }, adminPassword);
       onAdded(entry);
       setName("");
       setReason("");

@@ -22,4 +22,5 @@ Thumbs.db
 
 # user-submitted content + private metadata (contains IPs)
 server/data/entries.json
+server/data/users.json
 server/uploads/

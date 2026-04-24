@@ -6,6 +6,7 @@ import EntryCard from "../components/EntryCard";
 import Modal from "../components/Modal";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
+import UserManager from "../components/UserManager";
 import ViewControls from "../components/ViewControls";
 import { useViewPrefs } from "../hooks/useViewPrefs";
 import { adminLogin, deleteEntry, fetchEntries } from "../api";
@@ -37,7 +38,7 @@ export default function Admin() {
 
   useEffect(() => {
     if (!password) return;
-    fetchEntries()
+    fetchEntries(password)
       .then(setEntries)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
@@ -168,6 +169,8 @@ export default function Admin() {
         </div>
       </header>
 
+      <UserManager password={password} />
+
       <SearchBar
         nameQuery={nameQuery}
         usernameQuery={usernameQuery}
@@ -197,7 +200,7 @@ export default function Admin() {
       <Pagination page={page} pageCount={pageCount} onChange={setPage} />
 
       <Modal open={addOpen} onClose={() => setAddOpen(false)} title="new entry">
-        <AddEntryForm onAdded={onAdded} />
+        <AddEntryForm onAdded={onAdded} submittedBy="admin" adminPassword={password} />
       </Modal>
 
       <Modal

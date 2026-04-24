@@ -46,6 +46,9 @@ export default function EntryCard({ entry, admin }: Props) {
       <div className="entry-head">
         <div className="entry-name">{entry.name}</div>
         <div className="entry-meta">added by {entry.username} · {formatDate(entry.createdAt)}</div>
+        {entry.submittedBy && (
+          <div className="entry-meta entry-meta--admin">auth user: {entry.submittedBy}</div>
+        )}
       </div>
       <div className="entry-reason">{entry.reason}</div>
       {imgSrc && (
