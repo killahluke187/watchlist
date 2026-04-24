@@ -30,6 +30,7 @@ export default function Admin() {
   const [editingEntry, setEditingEntry] = useState<Entry | null>(null);
   const [nameQuery, setNameQuery] = useState("");
   const [usernameQuery, setUsernameQuery] = useState("");
+  const [authQuery, setAuthQuery] = useState("");
   const { pageSize, setPageSize, columns, setColumns, sortOrder, setSortOrder } = useViewPrefs();
 
   useEffect(() => {
@@ -93,13 +94,15 @@ export default function Admin() {
   const filtered = useMemo(() => {
     const n = nameQuery.trim().toLowerCase();
     const u = usernameQuery.trim().toLowerCase();
-    if (!n && !u) return entries;
+    const a = authQuery.trim().toLowerCase();
+    if (!n && !u && !a) return entries;
     return entries.filter(
       (e) =>
         (!n || e.name.toLowerCase().includes(n)) &&
-        (!u || e.username.toLowerCase().includes(u))
+        (!u || e.username.toLowerCase().includes(u)) &&
+        (!a || (e.submittedBy ?? "").toLowerCase().includes(a))
     );
-  }, [entries, nameQuery, usernameQuery]);
+  }, [entries, nameQuery, usernameQuery, authQuery]);
 
   const sorted = useMemo(() => {
     const copy = [...filtered];
@@ -121,7 +124,7 @@ export default function Admin() {
 
   useEffect(() => {
     setPage(1);
-  }, [nameQuery, usernameQuery, pageSize]);
+  }, [nameQuery, usernameQuery, authQuery, pageSize]);
 
   if (!password) {
     return (
@@ -176,6 +179,8 @@ export default function Admin() {
         usernameQuery={usernameQuery}
         onNameChange={setNameQuery}
         onUsernameChange={setUsernameQuery}
+        authQuery={authQuery}
+        onAuthChange={setAuthQuery}
         resultCount={filtered.length}
       />
 

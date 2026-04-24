@@ -3,6 +3,8 @@ type Props = {
   usernameQuery: string;
   onNameChange: (v: string) => void;
   onUsernameChange: (v: string) => void;
+  authQuery?: string;
+  onAuthChange?: (v: string) => void;
   resultCount: number;
 };
 
@@ -11,9 +13,12 @@ export default function SearchBar({
   usernameQuery,
   onNameChange,
   onUsernameChange,
+  authQuery,
+  onAuthChange,
   resultCount,
 }: Props) {
-  const active = nameQuery.trim() || usernameQuery.trim();
+  const showAuth = typeof authQuery === "string" && typeof onAuthChange === "function";
+  const active = nameQuery.trim() || usernameQuery.trim() || (showAuth && authQuery!.trim());
 
   return (
     <div className="card search-bar">
@@ -36,6 +41,17 @@ export default function SearchBar({
             placeholder="who added the entry"
           />
         </label>
+        {showAuth && (
+          <label>
+            <span>search auth user</span>
+            <input
+              type="text"
+              value={authQuery}
+              onChange={(e) => onAuthChange!(e.target.value)}
+              placeholder="who was logged in"
+            />
+          </label>
+        )}
       </div>
       {active && (
         <div className="search-meta">
@@ -46,6 +62,7 @@ export default function SearchBar({
             onClick={() => {
               onNameChange("");
               onUsernameChange("");
+              if (showAuth) onAuthChange!("");
             }}
           >
             clear
