@@ -536,3 +536,102 @@ button.danger:hover:not(:disabled) {
     grid-template-columns: 1fr;
   }
 }
+
+/* tablets and small laptops */
+@media (max-width: 820px) {
+  .page {
+    padding: 16px 12px 48px;
+  }
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* phones */
+@media (max-width: 560px) {
+  html, body, #root {
+    font-size: 16px;
+  }
+  h1 { font-size: 24px; }
+  h2 { font-size: 16px; }
+  .page {
+    padding: 12px 10px 40px;
+    gap: 12px;
+  }
+  .card {
+    padding: 14px;
+  }
+  .view-controls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .view-controls > * {
+    flex: 1 1 auto;
+  }
+  .inline-select {
+    flex: 1 1 100%;
+  }
+  .inline-select select {
+    width: 100%;
+  }
+  .header-actions > button {
+    flex: 1 1 auto;
+  }
+  .entry-image,
+  .entry-youtube {
+    max-width: 100%;
+  }
+  .entry-image {
+    max-height: 220px;
+  }
+  .modal-backdrop {
+    padding: 16px 8px;
+  }
+  .modal {
+    max-width: 100%;
+  }
+  .modal-body {
+    padding: 12px;
+  }
+  .pagination .page-num {
+    min-width: 36px;
+    padding: 8px 10px;
+  }
+  .entry-actions {
+    flex-wrap: wrap;
+  }
+  .entry-actions > button {
+    flex: 1 1 auto;
+  }
+  button {
+    padding: 12px 14px;
+  }
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    padding: 12px 12px;
+    font-size: 16px;
+  }
+}
+
+/* very small phones (≤375px) */
+@media (max-width: 380px) {
+  .page {
+    padding: 10px 8px 32px;
+  }
+  h1 { font-size: 22px; }
+  .pagination {
+    gap: 4px;
+  }
+  .pagination .page-num {
+    min-width: 32px;
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}
