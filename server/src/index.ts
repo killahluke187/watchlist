@@ -31,8 +31,20 @@ type Entry = {
   imageFile: string | null;
   youtubeId: string | null;
   medalEmbedUrl: string | null;
+  submitterIp: string | null;
   createdAt: number;
 };
+
+type PublicEntry = Omit<Entry, "submitterIp">;
+
+function publicView(e: Entry): PublicEntry {
+  const { submitterIp: _ip, ...rest } = e;
+  return rest;
+}
+
+function getClientIp(req: Request): string | null {
+  return req.ip || null;
+}
 
 function readEntries(): Entry[] {
   try {
@@ -47,6 +59,7 @@ function readEntries(): Entry[] {
       imageFile: e.imageFile ?? null,
       youtubeId: e.youtubeId ?? null,
       medalEmbedUrl: e.medalEmbedUrl ?? null,
+      submitterIp: e.submitterIp ?? null,
       createdAt: e.createdAt!,
     }));
   } catch {
@@ -121,6 +134,7 @@ function deleteImage(filename: string | null) {
 }
 
 const app = express();
+app.set("trust proxy", true);
 app.use(cors());
 app.use(express.json({ limit: "12mb" }));
 app.use("/uploads", express.static(UPLOAD_DIR));
@@ -139,7 +153,7 @@ app.post("/api/admin/login", (req, res) => {
 
 app.get("/api/entries", (_req, res) => {
   const entries = readEntries().sort((a, b) => b.createdAt - a.createdAt);
-  res.json(entries);
+  res.json(entries.map(publicView));
 });
 
 app.post("/api/entries", async (req, res) => {
@@ -174,12 +188,13 @@ app.post("/api/entries", async (req, res) => {
     imageFile,
     youtubeId,
     medalEmbedUrl,
+    submitterIp: getClientIp(req),
     createdAt: Date.now(),
   };
   const entries = readEntries();
   entries.push(entry);
   writeEntries(entries);
-  res.status(201).json(entry);
+  res.status(201).json(publicView(entry));
 });
 
 app.put("/api/entries/:id", requireAdmin, async (req, res) => {
@@ -223,7 +238,7 @@ app.put("/api/entries/:id", requireAdmin, async (req, res) => {
   }
   entries[idx] = next;
   writeEntries(entries);
-  res.json(next);
+  res.json(publicView(next));
 });
 
 app.delete("/api/entries/:id", requireAdmin, (req, res) => {
