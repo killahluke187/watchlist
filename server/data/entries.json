@@ -1,0 +1,832 @@
+[
+  {
+    "id": "928bafd2-4a0d-4e78-9e86-375ac7c4bdbc",
+    "username": "nightowl",
+    "name": "leaderboard_fraud",
+    "reason": "bullying a minor in voice, did not stop after being asked",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774845450588
+  },
+  {
+    "id": "96e54a49-c532-4189-8ffa-3d8ae6745ed2",
+    "username": "redlight",
+    "name": "queue_dodger",
+    "reason": "abusing a known exploit to duplicate currency",
+    "imageFile": "9e669c1b-eedb-4415-a405-0bf36eee8ec4.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776864508395
+  },
+  {
+    "id": "92c10cb0-af91-4bdc-bea2-e49e1499e06c",
+    "username": "lurker",
+    "name": "troll_king",
+    "reason": "chat flooding to break the in-game chat for everyone else",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775247169552
+  },
+  {
+    "id": "d4d4504c-1eba-4560-a474-6f1b4425e5ea",
+    "username": "modmaster",
+    "name": "account_seller",
+    "reason": "using hate symbols as their profile picture and clan tag",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776574287013
+  },
+  {
+    "id": "9bc7e7cf-19fb-445b-9200-c8042a2e22fd",
+    "username": "nullbyte",
+    "name": "ban_evader",
+    "reason": "mass reporting innocent players to get them banned",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775782048731
+  },
+  {
+    "id": "1a75bcce-ddac-4667-99d4-980526642d17",
+    "username": "spectre",
+    "name": "slur_thrower",
+    "reason": "scammed me out of 3 items during a trade, blocked me right after",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776535805342
+  },
+  {
+    "id": "cb70af56-96f9-4ea8-8195-42c5119165fa",
+    "username": "spectre",
+    "name": "match_fixer",
+    "reason": "doxxed another player in the lobby, posted irl name and city",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": "https://medal.tv/games/roblox/clip/muR4OdSwomlw0stcm",
+    "createdAt": 1776937992937
+  },
+  {
+    "id": "af5b1f15-45a4-4535-91ef-c8875c15edfe",
+    "username": "anon_user",
+    "name": "farm_bot_x",
+    "reason": "mic spamming loud audio / ear rape for the entire match",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775559683777
+  },
+  {
+    "id": "33a00543-d598-46b6-abf5-6196d08d44e0",
+    "username": "modmaster",
+    "name": "toxicplayer99",
+    "reason": "bullying a minor in voice, did not stop after being asked",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775714366495
+  },
+  {
+    "id": "87cf20e5-e22d-4d11-a6c5-ff918885d316",
+    "username": "admin_luke",
+    "name": "queue_dodger",
+    "reason": "selling accounts on third-party sites, posts updated weekly",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775747169587
+  },
+  {
+    "id": "29d47ec3-59c4-4bfd-9bb0-7599a4b6f385",
+    "username": "anon_user",
+    "name": "wall_hacker",
+    "reason": "using hate symbols as their profile picture and clan tag",
+    "imageFile": "23494c75-72e8-45db-8b8c-0a8bd5f1728e.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776429544391
+  },
+  {
+    "id": "9b3e51ab-d18f-4c59-903f-2b0a3b2e1e29",
+    "username": "crash_test",
+    "name": "boost_seller",
+    "reason": "aimlock confirmed by two separate killcam reviews",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776645901629
+  },
+  {
+    "id": "88a9ea7d-0f9b-4572-aa61-521dd6c9a205",
+    "username": "sentinel",
+    "name": "alt_account_17",
+    "reason": "queue dodging every time they get matched against good players",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776314786850
+  },
+  {
+    "id": "211adb7f-77fd-4db9-a167-4824684df2e6",
+    "username": "nullbyte",
+    "name": "botnet_steve",
+    "reason": "using hate symbols as their profile picture and clan tag",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776162948871
+  },
+  {
+    "id": "b506937e-d74f-4c85-a124-7cba48ba3f12",
+    "username": "ghostrider",
+    "name": "match_fixer",
+    "reason": "phishing attempt - sent me a fake login link claiming to be support",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774539590254
+  },
+  {
+    "id": "39fbb450-4438-49c7-bbb3-5c8c9c2d74dd",
+    "username": "overseer",
+    "name": "teamkiller42",
+    "reason": "chat flooding to break the in-game chat for everyone else",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776392296198
+  },
+  {
+    "id": "5c184975-ce45-46a9-9318-1b83b39f5f3b",
+    "username": "sentinel",
+    "name": "lag_switcher",
+    "reason": "match fixing with a friend on the enemy team to farm rewards",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776018988689
+  },
+  {
+    "id": "fdd1d3b2-804d-4ccb-a884-d6e2723b7201",
+    "username": "reporter1",
+    "name": "leaderboard_fraud",
+    "reason": "account boosting service, openly advertising in lobby chat",
+    "imageFile": "9234594f-ed09-43a1-9dea-cbd477d4b3dd.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776971020712
+  },
+  {
+    "id": "219889c4-664e-49c6-9e7d-5f1da33bc51a",
+    "username": "zero_cool",
+    "name": "ban_evader",
+    "reason": "match fixing with a friend on the enemy team to farm rewards",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775392005438
+  },
+  {
+    "id": "76309a6d-b0ee-4aae-bdc5-3865685b591f",
+    "username": "lurker",
+    "name": "scammer_jim",
+    "reason": "using a wallhack, confirmed by the killcam - shooting through walls the entire match",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775835200165
+  },
+  {
+    "id": "217ac4a5-f4c0-4e2a-b67e-86b402672006",
+    "username": "admin_luke",
+    "name": "farm_bot_x",
+    "reason": "deliberately throwing ranked games to derank and stomp lower elo",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774917831971
+  },
+  {
+    "id": "3bc3a394-524c-43d4-9f3a-8114eba6a6f1",
+    "username": "watchdog",
+    "name": "slur_thrower",
+    "reason": "bullying a minor in voice, did not stop after being asked",
+    "imageFile": "819dabcc-d14a-49e8-b8ce-5db471fbce26.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775914339948
+  },
+  {
+    "id": "25a2249f-e3fa-4c26-acfe-1b90cbce02d0",
+    "username": "nightowl",
+    "name": "phish_hunter",
+    "reason": "scammed me out of 3 items during a trade, blocked me right after",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776223335570
+  },
+  {
+    "id": "2675d53d-b13d-4ad9-bd24-4b78ddce4cf8",
+    "username": "admin_luke",
+    "name": "account_seller",
+    "reason": "bullying a minor in voice, did not stop after being asked",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775920858316
+  },
+  {
+    "id": "f027a73c-ebc0-431e-bbe4-c63b4c14dfe2",
+    "username": "watchdog",
+    "name": "ranked_dodger",
+    "reason": "using a modified client to see through smokes",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775659824599
+  },
+  {
+    "id": "149af3d1-5d2d-4895-aa73-f49d44453198",
+    "username": "modmaster",
+    "name": "boost_seller",
+    "reason": "stream sniping, admitted it on their own twitch chat",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775855444291
+  },
+  {
+    "id": "2233cfef-7cc9-480f-8432-15ef7d95633c",
+    "username": "modmaster",
+    "name": "alt_account_17",
+    "reason": "griefing objectives every round, standing in spawn and not moving",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774447658784
+  },
+  {
+    "id": "538ad3ca-3230-4050-8c56-1ff080a91855",
+    "username": "nightowl",
+    "name": "slur_thrower",
+    "reason": "aimbot, tracks through smoke every single engagement",
+    "imageFile": "3c79c16c-1952-4af3-994f-5303ae7865de.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775910849737
+  },
+  {
+    "id": "8374efbf-f6c7-43a3-810b-5a2f96140370",
+    "username": "redlight",
+    "name": "farm_bot_x",
+    "reason": "account boosting service, openly advertising in lobby chat",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776337942972
+  },
+  {
+    "id": "df00d0f6-3d33-462a-b066-bc8a1401d089",
+    "username": "modmaster",
+    "name": "false_flagger",
+    "reason": "aimbot, tracks through smoke every single engagement",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775381826572
+  },
+  {
+    "id": "6efa2a04-a6f5-4db2-9848-f7467eaa9d89",
+    "username": "sentinel",
+    "name": "exploit_user",
+    "reason": "ddosing the lobby whenever they start losing, massive lag spikes",
+    "imageFile": "c07185b3-5020-4476-84d6-56904a06d266.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775063882732
+  },
+  {
+    "id": "74d53610-7e69-4361-9386-57373fe0a302",
+    "username": "overseer",
+    "name": "ragequit_dan",
+    "reason": "using a modified client to see through smokes",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776326513113
+  },
+  {
+    "id": "c7394202-4d1c-4ac5-bdd6-4d15a8740d55",
+    "username": "overseer",
+    "name": "name_caller",
+    "reason": "abusing a known exploit to duplicate currency",
+    "imageFile": "a3352467-9028-4b03-85c5-ea53fb304c39.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776658355229
+  },
+  {
+    "id": "22547bde-3660-4802-b8fc-0b5a29f76466",
+    "username": "watchdog",
+    "name": "cheater_5000",
+    "reason": "griefing objectives every round, standing in spawn and not moving",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776672699270
+  },
+  {
+    "id": "3ce9e5ca-b2e5-45c2-b172-3ce42a3d5485",
+    "username": "crash_test",
+    "name": "ddos_dave",
+    "reason": "macro / autofire detected, fire rate is physically impossible",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776354264015
+  },
+  {
+    "id": "8e7847a8-b699-4522-b0cd-6b4d20d55fc0",
+    "username": "lurker",
+    "name": "stat_padder",
+    "reason": "mic spamming loud audio / ear rape for the entire match",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774864060778
+  },
+  {
+    "id": "9d158ef0-0d26-4b8d-91e4-2ae8441822b7",
+    "username": "watchdog",
+    "name": "toxicplayer99",
+    "reason": "phishing attempt - sent me a fake login link claiming to be support",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774563172713
+  },
+  {
+    "id": "18a1e6e0-f5d2-41c4-8150-ef97618382b0",
+    "username": "sentinel",
+    "name": "afk_champion",
+    "reason": "griefing objectives every round, standing in spawn and not moving",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774763406239
+  },
+  {
+    "id": "3f3cb4c4-0be9-4203-b8e5-f3ee665e373a",
+    "username": "lurker",
+    "name": "hacker_anon",
+    "reason": "deliberately throwing ranked games to derank and stomp lower elo",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774448145773
+  },
+  {
+    "id": "b3cdfead-d88d-444c-b66d-c55f9f20ed81",
+    "username": "lurker",
+    "name": "afk_champion",
+    "reason": "doxxed another player in the lobby, posted irl name and city",
+    "imageFile": "cafaeb85-f078-4b3d-ae47-06bd2a59c607.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776805510387
+  },
+  {
+    "id": "646afbe1-c22b-4d49-b358-756e7420f038",
+    "username": "zero_cool",
+    "name": "ragequit_dan",
+    "reason": "spamming slurs in voice chat, muted by 4 different people in the same game",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776437606494
+  },
+  {
+    "id": "b052cd51-2d45-44af-83cc-45c33470251d",
+    "username": "redlight",
+    "name": "wall_hacker",
+    "reason": "using a wallhack, confirmed by the killcam - shooting through walls the entire match",
+    "imageFile": "4e3d330c-b03a-40bc-8b83-6391b066ce2f.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776253313309
+  },
+  {
+    "id": "6cd50593-9740-4b5a-b711-ed77b5a38dc3",
+    "username": "spectre",
+    "name": "server_hopper",
+    "reason": "ddosing the lobby whenever they start losing, massive lag spikes",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776159373217
+  },
+  {
+    "id": "40c68145-4fbe-4609-a86b-c7809f9d3d1a",
+    "username": "overseer",
+    "name": "scammer_jim",
+    "reason": "harassing new players in chat, told multiple people to uninstall",
+    "imageFile": "e901712e-8af3-451b-9832-229ea45924a3.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775903299248
+  },
+  {
+    "id": "916519a3-c261-467b-889a-43abeee0b0de",
+    "username": "spectre",
+    "name": "ddos_dave",
+    "reason": "aimbot, tracks through smoke every single engagement",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774851550502
+  },
+  {
+    "id": "d6e8c067-4265-400c-9dff-54d369f174fc",
+    "username": "admin_luke",
+    "name": "alt_account_17",
+    "reason": "team killed everyone in spawn for three matches in a row",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774539809176
+  },
+  {
+    "id": "947d1e63-a7a5-49fb-af84-4a25f015f700",
+    "username": "admin_luke",
+    "name": "ragequit_dan",
+    "reason": "stream sniping, admitted it on their own twitch chat",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776543353926
+  },
+  {
+    "id": "8b33ebaa-5920-4e92-bca8-ed273298fa36",
+    "username": "redlight",
+    "name": "leaderboard_fraud",
+    "reason": "doxxed another player in the lobby, posted irl name and city",
+    "imageFile": "71c1a293-9559-4731-aa8d-381af70f5000.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776877845410
+  },
+  {
+    "id": "6b607cb4-7c84-45df-9fde-5582099f2819",
+    "username": "nullbyte",
+    "name": "ranked_dodger",
+    "reason": "account trading - caught selling logins on the unofficial discord",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776648105097
+  },
+  {
+    "id": "3463cdf8-814e-42be-a4e0-2cd2400e0825",
+    "username": "lurker",
+    "name": "false_flagger",
+    "reason": "selling accounts on third-party sites, posts updated weekly",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776129544802
+  },
+  {
+    "id": "10960618-9c39-47f1-9d17-de5b87f368ef",
+    "username": "nullbyte",
+    "name": "troll_king",
+    "reason": "phishing attempt - sent me a fake login link claiming to be support",
+    "imageFile": null,
+    "youtubeId": "aHmy3BzUbsM",
+    "medalEmbedUrl": null,
+    "createdAt": 1776958518856
+  },
+  {
+    "id": "9de79853-4311-428c-9f3c-3b7dbe8a1612",
+    "username": "reporter1",
+    "name": "scammer_jim",
+    "reason": "queue dodging every time they get matched against good players",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775311474957
+  },
+  {
+    "id": "5b5d9791-a527-45db-949d-78041fb100da",
+    "username": "watchdog",
+    "name": "hacker_anon",
+    "reason": "mass reporting innocent players to get them banned",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774605005892
+  },
+  {
+    "id": "895370c5-a9e4-41dd-84cb-fbe2ecfdc38f",
+    "username": "redlight",
+    "name": "key_logger",
+    "reason": "using a modified client to see through smokes",
+    "imageFile": "2e698f2e-d568-45f3-9067-cdaddb71e029.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774549355502
+  },
+  {
+    "id": "d8858f1d-8d2e-41f3-87ea-46e75f93c731",
+    "username": "lurker",
+    "name": "griefer_kev",
+    "reason": "using a wallhack, confirmed by the killcam - shooting through walls the entire match",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776389731316
+  },
+  {
+    "id": "3edf7106-9992-47f7-91b0-cefc5372e4fd",
+    "username": "sentinel",
+    "name": "aim_botter",
+    "reason": "spamming slurs in voice chat, muted by 4 different people in the same game",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776248871374
+  },
+  {
+    "id": "0feae639-3316-42fe-b78a-b38b666c307a",
+    "username": "crash_test",
+    "name": "key_logger",
+    "reason": "mic spamming loud audio / ear rape for the entire match",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774691674639
+  },
+  {
+    "id": "95c0ddeb-ed02-41bf-9618-f178e85c3298",
+    "username": "redlight",
+    "name": "leaderboard_fraud",
+    "reason": "ddosing the lobby whenever they start losing, massive lag spikes",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776148210868
+  },
+  {
+    "id": "f41a7448-1a14-498c-b99a-2e344d3aa220",
+    "username": "redlight",
+    "name": "phish_hunter",
+    "reason": "running a cheat marketplace - caught selling subscriptions",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775315378229
+  },
+  {
+    "id": "71aa422a-319e-4d1d-89d0-9e1a3ebdecfc",
+    "username": "zero_cool",
+    "name": "phish_hunter",
+    "reason": "stream sniping, admitted it on their own twitch chat",
+    "imageFile": "b43603d8-9574-4b68-874a-51b4d54236e6.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776743397742
+  },
+  {
+    "id": "1bd312e0-ea9c-411e-b1d4-4562e6e125df",
+    "username": "admin_luke",
+    "name": "ragequit_dan",
+    "reason": "aimlock confirmed by two separate killcam reviews",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776474092212
+  },
+  {
+    "id": "8c10bbe4-76e9-4777-a403-8ffb06ed3e1a",
+    "username": "admin_luke",
+    "name": "griefer_kev",
+    "reason": "mass reporting innocent players to get them banned",
+    "imageFile": "d1834788-dc91-4bd6-8f73-e1008457842c.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774627310349
+  },
+  {
+    "id": "fdfcafa2-46be-47cf-89db-f0ed177f7f95",
+    "username": "reporter1",
+    "name": "ban_evader",
+    "reason": "match fixing with a friend on the enemy team to farm rewards",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774776084029
+  },
+  {
+    "id": "9151b0f8-5f33-4e62-88b3-53cfafb595d2",
+    "username": "nullbyte",
+    "name": "toxicplayer99",
+    "reason": "using hate symbols as their profile picture and clan tag",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774691875685
+  },
+  {
+    "id": "a9ce553e-894c-4659-8025-f200d8590b84",
+    "username": "spectre",
+    "name": "toxicplayer99",
+    "reason": "running a cheat marketplace - caught selling subscriptions",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774942436688
+  },
+  {
+    "id": "3bde0312-093c-4af1-ab41-b03815e90e4e",
+    "username": "nullbyte",
+    "name": "smurfqueen",
+    "reason": "phishing attempt - sent me a fake login link claiming to be support",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775617720144
+  },
+  {
+    "id": "322a2e7f-1f08-46a7-8e06-03a157286f8c",
+    "username": "ghostrider",
+    "name": "exploit_user",
+    "reason": "deliberately throwing ranked games to derank and stomp lower elo",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775838517061
+  },
+  {
+    "id": "5634cbaf-3784-4326-abdd-e57069159ac2",
+    "username": "spectre",
+    "name": "ranked_dodger",
+    "reason": "queue dodging every time they get matched against good players\n\nBANNED",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776812558343
+  },
+  {
+    "id": "01add599-c816-4e75-83f0-35cfea04dcd6",
+    "username": "reporter1",
+    "name": "salty_tony",
+    "reason": "account boosting service, openly advertising in lobby chat",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776329659057
+  },
+  {
+    "id": "3ba7112b-1634-4d18-8abf-9e0d3d682161",
+    "username": "crash_test",
+    "name": "queue_dodger",
+    "reason": "chat flooding to break the in-game chat for everyone else",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775700249709
+  },
+  {
+    "id": "320f158c-d346-4550-9716-a02c51d94335",
+    "username": "zero_cool",
+    "name": "wall_hacker",
+    "reason": "harassing new players in chat, told multiple people to uninstall",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775038493737
+  },
+  {
+    "id": "949cf81b-e3a6-443c-80f3-a35d86788ced",
+    "username": "modmaster",
+    "name": "spam_master",
+    "reason": "stream sniping, admitted it on their own twitch chat",
+    "imageFile": "abd2947c-55db-4a25-8cc5-98be20d0df2d.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775353558921
+  },
+  {
+    "id": "0330c0f8-1b15-4dc1-b140-eef957e3d02c",
+    "username": "crash_test",
+    "name": "report_abuser",
+    "reason": "abusing a known exploit to duplicate currency",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774523312900
+  },
+  {
+    "id": "3c8ecac8-35fe-4781-a81e-896d54e1fb0f",
+    "username": "nullbyte",
+    "name": "exploit_user",
+    "reason": "stream sniping, admitted it on their own twitch chat",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776248288707
+  },
+  {
+    "id": "0a49b3d3-f776-45c9-8113-23fed70b363d",
+    "username": "ghostrider",
+    "name": "griefer_kev",
+    "reason": "aimlock confirmed by two separate killcam reviews",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775577567386
+  },
+  {
+    "id": "1a813a88-0338-4c56-9deb-732b39ad2954",
+    "username": "modmaster",
+    "name": "leaderboard_fraud",
+    "reason": "abusing a known exploit to duplicate currency",
+    "imageFile": "fe6a9beb-dc7f-4855-beb4-5b82155c289a.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774506881582
+  },
+  {
+    "id": "27eae1f4-d970-4fd8-8d08-32d1a6cddb60",
+    "username": "crash_test",
+    "name": "spam_master",
+    "reason": "doxxed another player in the lobby, posted irl name and city",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774916459100
+  },
+  {
+    "id": "1c0d29e3-485f-4199-9102-dc255e208152",
+    "username": "sentinel",
+    "name": "salty_tony",
+    "reason": "team killed everyone in spawn for three matches in a row",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775067665829
+  },
+  {
+    "id": "2eb8e361-b49d-48b2-8916-4342c28bd0ec",
+    "username": "watchdog",
+    "name": "ban_evader",
+    "reason": "aimbot, tracks through smoke every single engagement",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775435925689
+  },
+  {
+    "id": "b1b13e57-e9bf-441d-86ad-68c2e0dd28d5",
+    "username": "admin_luke",
+    "name": "slur_thrower",
+    "reason": "scammed me out of 3 items during a trade, blocked me right after",
+    "imageFile": "53f43d59-f620-47ca-8c40-06dce2da0fe2.seed.svg",
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776262494280
+  },
+  {
+    "id": "fe7beb70-e331-4c90-9dc1-1025520bbdaa",
+    "username": "admin_luke",
+    "name": "farm_bot_x",
+    "reason": "match fixing with a friend on the enemy team to farm rewards",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1774557966538
+  },
+  {
+    "id": "37d2dbb9-243b-4ea7-9650-d219a23f01a0",
+    "username": "zero_cool",
+    "name": "server_hopper",
+    "reason": "aimbot, tracks through smoke every single engagement",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1775371755644
+  },
+  {
+    "id": "3320595a-8b0d-40e4-b9c4-440bc0922f38",
+    "username": "admin_luke",
+    "name": "teamkiller42",
+    "reason": "abusing a known exploit to duplicate currency",
+    "imageFile": null,
+    "youtubeId": null,
+    "medalEmbedUrl": null,
+    "createdAt": 1776526752552
+  }
+]

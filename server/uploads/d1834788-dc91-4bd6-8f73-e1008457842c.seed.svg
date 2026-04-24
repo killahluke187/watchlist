@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <rect width="640" height="360" fill="#2d1b4e"/>
+  <rect x="0" y="0" width="640" height="48" fill="#1a0f2f"/>
+  <circle cx="24" cy="24" r="6" fill="#9b59b6"/>
+  <circle cx="44" cy="24" r="6" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="64" cy="24" r="6" fill="rgba(255,255,255,0.55)"/>
+  <text x="90" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.55)">chat · #general</text>
+  <circle cx="48" cy="92" r="18" fill="#9b59b6"/>
+  <text x="80" y="86" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#9b59b6">griefer_kev</text>
+  <text x="191" y="86" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.55)">today at 7:17 PM</text>
+  <text x="80" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f4f4f4">mass reporting innocent players to get them</text>
+  <text x="80" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#f4f4f4">banned</text>
+  <rect x="20" y="310" width="600" height="36" fill="#1a0f2f" rx="6"/>
+  <text x="36" y="333" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.55)">message #general</text>
+</svg>

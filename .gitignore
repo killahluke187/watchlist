@@ -1,0 +1,21 @@
+# deps
+node_modules/
+
+# build artifacts
+client/dist/
+**/*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+
+# env / secrets
+.env
+.env.local
+.env.*.local
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
