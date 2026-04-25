@@ -2,6 +2,17 @@ import pg from "pg";
 
 const connectionString = process.env.DATABASE_URL;
 
+console.log("[startup] env diagnostic:", {
+  DATABASE_URL_present: typeof process.env.DATABASE_URL !== "undefined",
+  DATABASE_URL_length: process.env.DATABASE_URL?.length ?? 0,
+  ADMIN_PASSWORD_present: typeof process.env.ADMIN_PASSWORD !== "undefined",
+  PORT_present: typeof process.env.PORT !== "undefined",
+  matching_keys: Object.keys(process.env).filter((k) =>
+    /database|postgres|^db_|_url$/i.test(k)
+  ),
+  total_env_count: Object.keys(process.env).length,
+});
+
 if (!connectionString) {
   console.error("DATABASE_URL is not set. The server cannot start without a Postgres connection.");
   console.error("Set DATABASE_URL in your environment (locally) or in Render's environment variables.");
