@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import AddEntryForm from "../components/AddEntryForm";
 import EntryCard from "../components/EntryCard";
+import LoginForm from "../components/LoginForm";
 import Modal from "../components/Modal";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
-import UserGate from "../components/UserGate";
 import ViewControls from "../components/ViewControls";
 import { useViewPrefs } from "../hooks/useViewPrefs";
 import { checkUser, fetchEntries } from "../api";
@@ -14,48 +14,49 @@ const USER_KEY = "watchlist-user";
 
 export default function Home() {
   const [authedUser, setAuthedUser] = useState<string | null>(null);
-  const [authChecked, setAuthChecked] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [addOpen, setAddOpen] = useState(false);
 
   const [entries, setEntries] = useState<Entry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
   const [nameQuery, setNameQuery] = useState("");
   const [usernameQuery, setUsernameQuery] = useState("");
   const { pageSize, setPageSize, columns, setColumns, sortOrder, setSortOrder } = useViewPrefs();
 
   useEffect(() => {
     const cached = localStorage.getItem(USER_KEY);
-    if (!cached) {
-      setAuthChecked(true);
-      return;
-    }
+    if (!cached) return;
     checkUser(cached)
       .then((ok) => {
         if (ok) setAuthedUser(cached);
         else localStorage.removeItem(USER_KEY);
       })
-      .catch(() => {})
-      .finally(() => setAuthChecked(true));
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
-    if (!authedUser) return;
     fetchEntries()
       .then(setEntries)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
-  }, [authedUser]);
+  }, []);
 
   function onAuthed(username: string) {
     localStorage.setItem(USER_KEY, username);
     setAuthedUser(username);
+    setLoginOpen(false);
+  }
+
+  function logout() {
+    localStorage.removeItem(USER_KEY);
+    setAuthedUser(null);
   }
 
   function onAdded(entry: Entry) {
     setEntries((prev) => [entry, ...prev]);
-    setModalOpen(false);
+    setAddOpen(false);
     setPage(1);
   }
 
@@ -92,15 +93,14 @@ export default function Home() {
     setPage(1);
   }, [nameQuery, usernameQuery, pageSize]);
 
-  if (!authChecked) return null;
-  if (!authedUser) return <UserGate onAuthed={onAuthed} />;
-
   return (
     <div className={`page${columns === 3 ? " page--wide" : ""}`}>
       <header className="page-header card">
         <div>
           <h1>watchlist</h1>
-          <div className="subtitle">signed in as {authedUser}</div>
+          <div className="subtitle">
+            {authedUser ? `signed in as ${authedUser}` : "view-only — log in to add entries"}
+          </div>
         </div>
         <div className="header-actions">
           <ViewControls
@@ -111,7 +111,14 @@ export default function Home() {
             sortOrder={sortOrder}
             onSortOrderChange={setSortOrder}
           />
-          <button onClick={() => setModalOpen(true)}>+ new entry</button>
+          {authedUser ? (
+            <>
+              <button onClick={() => setAddOpen(true)}>+ new entry</button>
+              <button className="ghost" onClick={logout}>logout</button>
+            </>
+          ) : (
+            <button onClick={() => setLoginOpen(true)}>login</button>
+          )}
         </div>
       </header>
 
@@ -139,8 +146,12 @@ export default function Home() {
 
       <Pagination page={page} pageCount={pageCount} onChange={setPage} />
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="new entry">
-        <AddEntryForm onAdded={onAdded} submittedBy={authedUser} />
+      <Modal open={loginOpen} onClose={() => setLoginOpen(false)} title="login">
+        <LoginForm onAuthed={onAuthed} />
+      </Modal>
+
+      <Modal open={addOpen} onClose={() => setAddOpen(false)} title="new entry">
+        {authedUser && <AddEntryForm onAdded={onAdded} submittedBy={authedUser} />}
       </Modal>
     </div>
   );

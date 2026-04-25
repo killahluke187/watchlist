@@ -470,10 +470,6 @@ button.danger:hover:not(:disabled) {
   color: var(--accent);
 }
 
-.user-gate {
-  background: rgba(0, 0, 0, 0.92);
-}
-
 .header-actions {
   display: flex;
   flex-direction: row;
