@@ -284,17 +284,49 @@ button.danger:hover:not(:disabled) {
   margin-top: 4px;
 }
 
+.paste-media {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.paste-alt {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.paste-alt-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.paste-alt-row > input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.paste-upload-btn {
+  width: 100%;
+}
+
 .paste-zone {
   border: 1px dashed var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-input);
-  min-height: 100px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
   cursor: text;
   outline: none;
+}
+
+.paste-zone--filled {
+  border-style: solid;
+  cursor: default;
 }
 
 .paste-zone--focused {
@@ -585,6 +617,18 @@ button.danger:hover:not(:disabled) {
   .header-actions {
     width: 100%;
     justify-content: flex-start;
+  }
+}
+
+/* on touch devices the desktop paste zone is unreliable —
+   the URL input + upload button are the primary path. */
+@media (hover: none) and (pointer: coarse) {
+  .paste-zone {
+    min-height: 56px;
+    opacity: 0.7;
+  }
+  .paste-zone .paste-hint {
+    font-size: 11px;
   }
 }
 
