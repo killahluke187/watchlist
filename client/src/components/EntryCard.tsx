@@ -2,6 +2,8 @@ import { useState } from "react";
 import { youtubeEmbedUrl, youtubeWatchUrl } from "../youtube";
 import type { Entry } from "../types";
 
+const HIDE_BROKEN_IMG: React.CSSProperties = { display: "none" };
+
 type Props = {
   entry: Entry;
   admin?: {
@@ -53,7 +55,17 @@ export default function EntryCard({ entry, admin }: Props) {
       <div className="entry-reason">{entry.reason}</div>
       {imgSrc && (
         <a className="entry-image-link" href={imgSrc} target="_blank" rel="noreferrer">
-          <img className="entry-image" src={imgSrc} alt="" />
+          <img
+            className="entry-image"
+            src={imgSrc}
+            alt=""
+            onError={(e) => {
+              // image is gone (e.g. from before persistent storage was added) —
+              // hide the wrapper rather than render a broken-link rectangle
+              const link = (e.target as HTMLImageElement).closest(".entry-image-link");
+              if (link) Object.assign((link as HTMLElement).style, HIDE_BROKEN_IMG);
+            }}
+          />
         </a>
       )}
       {entry.youtubeId && (

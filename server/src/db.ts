@@ -45,6 +45,8 @@ CREATE TABLE IF NOT EXISTS entries (
   name TEXT NOT NULL,
   reason TEXT NOT NULL,
   image_file TEXT,
+  image_data BYTEA,
+  image_mime TEXT,
   youtube_id TEXT,
   medal_embed_url TEXT,
   submitted_by TEXT,
@@ -53,6 +55,10 @@ CREATE TABLE IF NOT EXISTS entries (
 );
 
 CREATE INDEX IF NOT EXISTS idx_entries_created_at ON entries (created_at DESC);
+
+-- migration for existing deployments where the columns may not yet exist
+ALTER TABLE entries ADD COLUMN IF NOT EXISTS image_data BYTEA;
+ALTER TABLE entries ADD COLUMN IF NOT EXISTS image_mime TEXT;
 `;
 
 export async function initSchema(): Promise<void> {
@@ -112,35 +118,68 @@ export async function getEntryById(id: string): Promise<Entry | null> {
   return r.rows[0] ? rowToEntry(r.rows[0]) : null;
 }
 
-export async function insertEntry(e: Entry): Promise<void> {
+export type ImageBytes = { filename: string; data: Buffer; mime: string };
+
+export async function insertEntry(e: Entry, image: ImageBytes | null): Promise<void> {
   await pool.query(
     `INSERT INTO entries
-       (id, username, name, reason, image_file, youtube_id, medal_embed_url, submitted_by, submitter_ip, created_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+       (id, username, name, reason, image_file, image_data, image_mime, youtube_id, medal_embed_url, submitted_by, submitter_ip, created_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
     [
       e.id, e.username, e.name, e.reason,
-      e.imageFile, e.youtubeId, e.medalEmbedUrl,
+      image?.filename ?? null, image?.data ?? null, image?.mime ?? null,
+      e.youtubeId, e.medalEmbedUrl,
       e.submittedBy, e.submitterIp, e.createdAt,
     ]
   );
 }
 
-export async function updateEntryRow(e: Entry): Promise<void> {
+export async function updateEntryFields(e: {
+  id: string;
+  username: string;
+  name: string;
+  reason: string;
+  youtubeId: string | null;
+  medalEmbedUrl: string | null;
+  submittedBy: string | null;
+}): Promise<void> {
   await pool.query(
     `UPDATE entries SET
        username = $2,
        name = $3,
        reason = $4,
-       image_file = $5,
-       youtube_id = $6,
-       medal_embed_url = $7,
-       submitted_by = $8
+       youtube_id = $5,
+       medal_embed_url = $6,
+       submitted_by = $7
      WHERE id = $1`,
-    [
-      e.id, e.username, e.name, e.reason,
-      e.imageFile, e.youtubeId, e.medalEmbedUrl, e.submittedBy,
-    ]
+    [e.id, e.username, e.name, e.reason, e.youtubeId, e.medalEmbedUrl, e.submittedBy]
   );
+}
+
+export async function setEntryImage(id: string, image: ImageBytes): Promise<void> {
+  await pool.query(
+    `UPDATE entries SET image_file = $2, image_data = $3, image_mime = $4 WHERE id = $1`,
+    [id, image.filename, image.data, image.mime]
+  );
+}
+
+export async function clearEntryImage(id: string): Promise<void> {
+  await pool.query(
+    `UPDATE entries SET image_file = NULL, image_data = NULL, image_mime = NULL WHERE id = $1`,
+    [id]
+  );
+}
+
+export async function getImageByFilename(
+  filename: string
+): Promise<{ data: Buffer; mime: string } | null> {
+  const r = await pool.query<{ image_data: Buffer | null; image_mime: string | null }>(
+    `SELECT image_data, image_mime FROM entries WHERE image_file = $1 LIMIT 1`,
+    [filename]
+  );
+  const row = r.rows[0];
+  if (!row || !row.image_data || !row.image_mime) return null;
+  return { data: row.image_data, mime: row.image_mime };
 }
 
 export async function deleteEntryById(id: string): Promise<boolean> {
