@@ -476,10 +476,31 @@ button.danger:hover:not(:disabled) {
 .user-manager .user-list {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+}
+
+@media (max-width: 560px) {
+  .user-manager .user-list {
+    grid-template-columns: 1fr;
+    max-height: 280px;
+  }
+}
+
+.user-add-row {
+  flex-wrap: wrap;
+}
+
+.user-add-row > input {
+  flex: 1 1 200px;
+  min-width: 0;
 }
 
 .user-manager .user-list li {
@@ -489,13 +510,22 @@ button.danger:hover:not(:disabled) {
   justify-content: space-between;
   gap: 8px;
   padding: 8px 12px;
-  background: var(--bg-input);
+  background: var(--bg-elev);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  min-width: 0;
 }
 
 .user-manager .user-list-name {
   font-family: var(--font-body);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.user-manager .user-list-name--legacy-removed {
+  /* superseded by truncating rule above */
 }
 
 .entry-meta--admin {

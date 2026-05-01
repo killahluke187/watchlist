@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { addUser, listUsers, removeUser } from "../api";
 
 type Props = {
@@ -8,6 +8,7 @@ type Props = {
 export default function UserManager({ password }: Props) {
   const [users, setUsers] = useState<string[]>([]);
   const [input, setInput] = useState("");
+  const [search, setSearch] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -49,16 +50,37 @@ export default function UserManager({ password }: Props) {
     }
   }
 
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return users;
+    return users.filter((u) => u.toLowerCase().includes(q));
+  }, [users, search]);
+
   return (
     <div className="user-manager">
-      <div className="subtitle">only these usernames can submit entries from the public page</div>
+      <div className="subtitle">
+        only these usernames can submit entries from the public page
+      </div>
+
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder={`search ${users.length} user${users.length === 1 ? "" : "s"}`}
+        autoCapitalize="off"
+        autoCorrect="off"
+      />
+
       {loading && <div className="muted">loading...</div>}
       {!loading && users.length === 0 && (
         <div className="muted">no users yet — add one below</div>
       )}
-      {users.length > 0 && (
+      {!loading && users.length > 0 && filtered.length === 0 && (
+        <div className="muted">no matches</div>
+      )}
+      {filtered.length > 0 && (
         <ul className="user-list">
-          {users.map((u) => (
+          {filtered.map((u) => (
             <li key={u}>
               <span className="user-list-name">{u}</span>
               <button
@@ -73,14 +95,16 @@ export default function UserManager({ password }: Props) {
           ))}
         </ul>
       )}
-      <form className="row" onSubmit={add}>
+
+      <form className="row user-add-row" onSubmit={add}>
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="new username"
           maxLength={40}
-          style={{ flex: 1 }}
+          autoCapitalize="off"
+          autoCorrect="off"
         />
         <button type="submit" disabled={busy || !input.trim()}>
           add user
