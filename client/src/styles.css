@@ -482,7 +482,7 @@ button.danger:hover:not(:disabled) {
   margin: 0;
   padding: 6px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
   max-height: 480px;
   overflow-y: auto;
@@ -514,7 +514,7 @@ button.danger:hover:not(:disabled) {
 
 @media (max-width: 560px) {
   .user-manager .user-list {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: 1fr;
     max-height: 360px;
   }
 }

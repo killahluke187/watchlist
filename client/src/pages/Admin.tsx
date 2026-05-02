@@ -208,7 +208,7 @@ export default function Admin() {
         <AddEntryForm onAdded={onAdded} submittedBy="admin" adminPassword={password} />
       </Modal>
 
-      <Modal open={usersOpen} onClose={() => setUsersOpen(false)} title="users" size="wide">
+      <Modal open={usersOpen} onClose={() => setUsersOpen(false)} title="users">
         <UserManager password={password} />
       </Modal>
 
