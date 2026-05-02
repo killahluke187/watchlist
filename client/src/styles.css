@@ -394,6 +394,10 @@ button.danger:hover:not(:disabled) {
   overflow: hidden;
 }
 
+.modal--wide {
+  max-width: 1200px;
+}
+
 .modal-head {
   display: flex;
   align-items: center;
@@ -476,21 +480,42 @@ button.danger:hover:not(:disabled) {
 .user-manager .user-list {
   list-style: none;
   margin: 0;
-  padding: 4px;
+  padding: 6px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
   gap: 6px;
-  max-height: 360px;
+  max-height: 480px;
   overflow-y: auto;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-input);
+
+  /* themed scrollbar — firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) var(--bg-input);
+}
+
+/* themed scrollbar — webkit */
+.user-manager .user-list::-webkit-scrollbar {
+  width: 10px;
+}
+.user-manager .user-list::-webkit-scrollbar-track {
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+}
+.user-manager .user-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 2px solid var(--bg-input);
+  border-radius: 6px;
+}
+.user-manager .user-list::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
 }
 
 @media (max-width: 560px) {
   .user-manager .user-list {
-    grid-template-columns: 1fr;
-    max-height: 280px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    max-height: 360px;
   }
 }
 
@@ -508,8 +533,8 @@ button.danger:hover:not(:disabled) {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 6px 6px 6px 10px;
   background: var(--bg-elev);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -518,10 +543,21 @@ button.danger:hover:not(:disabled) {
 
 .user-manager .user-list-name {
   font-family: var(--font-body);
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   min-width: 0;
+  flex: 1 1 auto;
+}
+
+.user-manager .user-list-remove {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  min-width: 28px;
 }
 
 .user-manager .user-list-name--legacy-removed {

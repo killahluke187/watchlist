@@ -82,14 +82,16 @@ export default function UserManager({ password }: Props) {
         <ul className="user-list">
           {filtered.map((u) => (
             <li key={u}>
-              <span className="user-list-name">{u}</span>
+              <span className="user-list-name" title={u}>{u}</span>
               <button
                 type="button"
-                className="danger"
+                className="danger user-list-remove"
                 onClick={() => remove(u)}
                 disabled={busy}
+                aria-label={`remove ${u}`}
+                title={`remove ${u}`}
               >
-                remove
+                ×
               </button>
             </li>
           ))}

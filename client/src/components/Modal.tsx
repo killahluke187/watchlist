@@ -4,10 +4,11 @@ type Props = {
   open: boolean;
   onClose: () => void;
   title?: string;
+  size?: "default" | "wide";
   children: React.ReactNode;
 };
 
-export default function Modal({ open, onClose, title, children }: Props) {
+export default function Modal({ open, onClose, title, size = "default", children }: Props) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -31,7 +32,7 @@ export default function Modal({ open, onClose, title, children }: Props) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="modal">
+      <div className={`modal modal--${size}`}>
         <div className="modal-head">
           <div className="modal-title">{title}</div>
           <button type="button" className="modal-close" onClick={onClose} aria-label="close">
